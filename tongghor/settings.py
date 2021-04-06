@@ -25,7 +25,7 @@ SECRET_KEY = 'django-insecure-_^0w)l%71azlt6oly+^ecl#$i#3)=7v@ev$j2$4u)s2t-vckh+
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ["tongghor.net","www.tongghor.net"]
 
 
 # Application definition
@@ -37,6 +37,7 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+    #Custom Apps 
     'accounts',
     'chat',
 ]
@@ -74,6 +75,7 @@ WSGI_APPLICATION = 'tongghor.wsgi.application'
 
 # Database
 # https://docs.djangoproject.com/en/3.2/ref/settings/#databases
+
 
 DATABASES = {
     'default': {
@@ -125,3 +127,9 @@ STATIC_URL = '/static/'
 # https://docs.djangoproject.com/en/3.2/ref/settings/#default-auto-field
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
+
+
+try:
+    from .local import *
+except:
+    pass
