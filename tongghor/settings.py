@@ -37,6 +37,7 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+    'channels',
     # Custom Apps 
     'tongghor.accounts',
     'tongghor.chat',
@@ -74,6 +75,16 @@ TEMPLATES = [
 
 WSGI_APPLICATION = 'tongghor.wsgi.application'
 
+# Channels
+ASGI_APPLICATION = "tongghor.asgi.application"
+CHANNEL_LAYERS = {
+    'default': {
+        'BACKEND': 'channels_redis.core.RedisChannelLayer',
+        'CONFIG': {
+            "hosts": [('127.0.0.1', 6379)],
+        },
+    },
+}
 
 # Database
 # https://docs.djangoproject.com/en/3.2/ref/settings/#databases
